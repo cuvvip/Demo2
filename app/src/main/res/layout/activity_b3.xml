@@ -120,23 +120,23 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <ImageView
-                android:id="@+id/imageView3"
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/dongtai_1" />
+                android:layout_height="500dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/wq"
+                android:textColor="@android:color/background_dark" />
 
-            <ImageView
-                android:id="@+id/imageView4"
+            <TextView
+                android:id="@+id/textView1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/dongtai_1" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/dongtai_1" />
+                android:layout_height="500dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/wq"
+                android:textColor="@android:color/background_dark" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

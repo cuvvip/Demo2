@@ -9,6 +9,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.demo2.Activity.RecycleDemo.pojo.Person;
 import com.example.demo2.R;
@@ -38,6 +39,15 @@ public class RecycleDemo2Activity extends AppCompatActivity {
         swipeRefreshLayout=findViewById(R.id.sw);
         recyclerView=findViewById(R.id.re);
 
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Toast.makeText(RecycleDemo2Activity.this, "点击了上拉刷新", Toast.LENGTH_SHORT).show();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
+
 
 //        模拟网上请求，大概两秒请求所有的数据
         new Handler().postDelayed(new Runnable() {
@@ -64,22 +74,14 @@ public class RecycleDemo2Activity extends AppCompatActivity {
                         }
                     }
                 });
-
-
-
-
-
-
             }
         },2000);
         List<Person> list=AddWebData();
-
-
     }
 
     public List<Person> AddWebData(){
         List<Person> list=new ArrayList<>();
-        for(int i=0;i<7;i++){
+        for(int i=0;i<47;i++){
 
             Person person=new Person();
             person.setGood(i+1);

@@ -22,6 +22,21 @@ public class Shopping implements Serializable {
 
     private Integer shoppingGood;
 
+    @Override
+    public String toString() {
+        return "Shopping{" +
+                "shoppingId='" + shoppingId + '\'' +
+                ", shoppingName='" + shoppingName + '\'' +
+                ", shoppingInformation='" + shoppingInformation + '\'' +
+                ", shoppingPrice=" + shoppingPrice +
+                ", shoppingNumber=" + shoppingNumber +
+                ", shoppingTotal=" + shoppingTotal +
+                ", shoppingImgurl='" + shoppingImgurl + '\'' +
+                ", shoppingDate=" + shoppingDate +
+                ", shoppingGood=" + shoppingGood +
+                '}';
+    }
+
     public String getShoppingId() {
         return shoppingId;
     }

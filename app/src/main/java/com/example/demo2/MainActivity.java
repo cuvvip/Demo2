@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.b4:
-                intent=new Intent(MainActivity.this, RxActivity.class);
-                startActivity(intent);
+//                intent=new Intent(MainActivity.this, RxActivity.class);
+//                startActivity(intent);
                 break;
             case R.id.b5:
                 intent=new Intent(MainActivity.this, RecycleDemo1Activity.class);

@@ -54,5 +54,6 @@ dependencies {
 
 //    下面是 swiperefreshlayout
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha03'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
 }

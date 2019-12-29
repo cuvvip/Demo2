@@ -4,16 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.demo2.Activity.WebDemo.web.ShopService;
 import com.example.demo2.R;
+
+import java.util.List;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 
+/**
+ *   ReActivity
+ */
 
 public class RxActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -38,42 +45,42 @@ public class RxActivity extends AppCompatActivity implements View.OnClickListene
 
             case R.id.b1:
 
-                new Thread(new Runnable() {
+                ShopService.getShoppingInfo(new Observer<WebShopping>() {
                     @Override
-                    public void run() {
-                        ShoppingService.getInstance().getShoppingInfo()
-                                .observeOn(AndroidSchedulers.mainThread())
+                    public void onSubscribe(Disposable d) {
 
-                                .subscribe(new Observer<Shopping>() {
-                                    @Override
-                                    public void onSubscribe(Disposable d) {
-
-                                    }
-
-                                    @Override
-                                    public void onNext(Shopping shopping) {
-
-                                        Toast.makeText(RxActivity.this, shopping.toString(), Toast.LENGTH_SHORT).show();
-                                    }
-
-                                    @Override
-                                    public void onError(Throwable e) {
-
-                                        Toast.makeText(RxActivity.this, "对不起", Toast.LENGTH_SHORT).show();
-                                    }
-
-                                    @Override
-                                    public void onComplete() {
-
-                                    }
-                                });
                     }
-                }).start();
+
+                    @Override
+                    public void onNext(WebShopping webShopping) {
+
+                        Toast.makeText(RxActivity.this, webShopping.toString(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                        Toast.makeText(RxActivity.this, "错误", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
 
 
                 break;
             case R.id.b2:
 
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        ShoppingService.getInstance().getSg();
+                    }
+                }).start();
                 break;
             case R.id.b3:
 

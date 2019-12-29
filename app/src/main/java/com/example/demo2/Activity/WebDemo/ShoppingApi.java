@@ -4,6 +4,10 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import okhttp3.MultipartBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -24,7 +28,11 @@ public interface ShoppingApi {
     Observable<Object> imagesUpload(@Part() List<MultipartBody.Part> imgs);
 
     @POST("/ssm05_war/SelectShopping")
-    Observable<Shopping> kk();
+    Observable<WebShopping> kk();
+
+    @POST("/ssm05_war/SelectShopping")
+    Call<ResponseBody> k1();
+
 
 
 }
